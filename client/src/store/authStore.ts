@@ -79,9 +79,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         throw new Error(error.message || 'Registration failed');
       }
 
-      await response.json();
-      
-      // Auto-login after registration
+      // Registration successful - auto-login
       await get().login(email, password);
     } catch (error) {
       set({ isLoading: false });
