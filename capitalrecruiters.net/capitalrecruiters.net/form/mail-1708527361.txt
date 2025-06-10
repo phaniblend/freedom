@@ -1,0 +1,45 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><font color="#f35D14" size="2" face="Tahoma">Name:</font></td>
+    <td width="90%" height="22"><font color="#333333" size="-1" face="Tahoma">Vikas Goud</font></td>
+  </tr>
+       
+  <tr>
+    <td><font color="#f35D14" size="2" face="Tahoma">E-mail :</font></td>
+    <td width="90%" height="22"><font color="#333333" size="-1" face="Tahoma">vikasgoudvicky9@gmail.com</font></td>
+  </tr>
+   
+  <tr>
+    <td><font color="#f35D14" size="2" face="Tahoma">Message :</font></td>
+    <td width="90%" height="22"><font color="#333333" size="-1" face="Tahoma">Looking for H1 processing from India - can you please advise if  you can take care of it? and process involved<br />
+</font></td>
+  </tr>
+</table>
+
+
+
+
+
+Sendgrid result
+-
+Status code: 202
+-
+Header:
+[
+    "HTTP\/1.1 202 Accepted",
+    "Server: nginx",
+    "Date: Wed, 21 Feb 2024 14:56:02 GMT",
+    "Content-Length: 0",
+    "Connection: keep-alive",
+    "X-Message-Id: grqx0wq6R8au7pj-YoQe1Q",
+    "Access-Control-Allow-Origin: https:\/\/sendgrid.api-docs.io",
+    "Access-Control-Allow-Methods: POST",
+    "Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl",
+    "Access-Control-Max-Age: 600",
+    "X-No-CORS-Reason: https:\/\/sendgrid.com\/docs\/Classroom\/Basics\/API\/cors.html",
+    "Strict-Transport-Security: max-age=600; includeSubDomains",
+    "",
+    ""
+]
+-
+Body:

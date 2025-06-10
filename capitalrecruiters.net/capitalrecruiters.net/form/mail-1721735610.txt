@@ -1,0 +1,53 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><font color="#f35D14" size="2" face="Tahoma">Name:</font></td>
+    <td width="90%" height="22"><font color="#333333" size="-1" face="Tahoma">Scarlett Baker</font></td>
+  </tr>
+       
+  <tr>
+    <td><font color="#f35D14" size="2" face="Tahoma">E-mail :</font></td>
+    <td width="90%" height="22"><font color="#333333" size="-1" face="Tahoma">scarlett@cleaning-dallas.com</font></td>
+  </tr>
+   
+  <tr>
+    <td><font color="#f35D14" size="2" face="Tahoma">Message :</font></td>
+    <td width="90%" height="22"><font color="#333333" size="-1" face="Tahoma">I was checking out your location the other day, and would love an opportunity to provide you with a cleaning quote. We’re working with several facilities in your area and everyone seems to love our work because of our reliability, responsiveness and attention to detail. May I give you more information and a no-obligation cleaning quote?<br />
+<br />
+I appreciate your time,<br />
+<br />
+Scarlett Baker<br />
+CEO<br />
+Commercial Cleanrs Dallas<br />
+scarlett@cleaning-dallas.com<br />
+<br />
+Respond with stop to optout.</font></td>
+  </tr>
+</table>
+
+
+
+
+
+Sendgrid result
+-
+Status code: 202
+-
+Header:
+[
+    "HTTP\/1.1 202 Accepted",
+    "Server: nginx",
+    "Date: Tue, 23 Jul 2024 11:53:30 GMT",
+    "Content-Length: 0",
+    "Connection: keep-alive",
+    "X-Message-Id: my9mzKipTX6yjAaTy4UIZw",
+    "Access-Control-Allow-Origin: https:\/\/sendgrid.api-docs.io",
+    "Access-Control-Allow-Methods: POST",
+    "Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl",
+    "Access-Control-Max-Age: 600",
+    "X-No-CORS-Reason: https:\/\/sendgrid.com\/docs\/Classroom\/Basics\/API\/cors.html",
+    "Strict-Transport-Security: max-age=600; includeSubDomains",
+    "",
+    ""
+]
+-
+Body:

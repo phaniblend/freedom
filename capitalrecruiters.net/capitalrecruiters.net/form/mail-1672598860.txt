@@ -1,0 +1,47 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><font color="#f35D14" size="2" face="Tahoma">Name:</font></td>
+    <td width="90%" height="22"><font color="#333333" size="-1" face="Tahoma">Vinodkumar </font></td>
+  </tr>
+       
+  <tr>
+    <td><font color="#f35D14" size="2" face="Tahoma">E-mail :</font></td>
+    <td width="90%" height="22"><font color="#333333" size="-1" face="Tahoma">bajantrivinodkumar007@gmail.com</font></td>
+  </tr>
+   
+  <tr>
+    <td><font color="#f35D14" size="2" face="Tahoma">Message :</font></td>
+    <td width="90%" height="22"><font color="#333333" size="-1" face="Tahoma">Hi Sir/Mam,<br />
+I am vinodkumar from India and I am currently final year M.tech production engineering student.I wish to do apprenticeship or job  in abroad so kindly if you have any opportunity for me then contact me.<br />
+<br />
+Thanks</font></td>
+  </tr>
+</table>
+
+
+
+
+
+Sendgrid result
+-
+Status code: 202
+-
+Header:
+[
+    "HTTP\/1.1 202 Accepted",
+    "Server: nginx",
+    "Date: Sun, 01 Jan 2023 18:47:41 GMT",
+    "Content-Length: 0",
+    "Connection: keep-alive",
+    "X-Message-Id: rBlCLjTIRcmSi6oYef4h0A",
+    "Access-Control-Allow-Origin: https:\/\/sendgrid.api-docs.io",
+    "Access-Control-Allow-Methods: POST",
+    "Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl",
+    "Access-Control-Max-Age: 600",
+    "X-No-CORS-Reason: https:\/\/sendgrid.com\/docs\/Classroom\/Basics\/API\/cors.html",
+    "Strict-Transport-Security: max-age=600; includeSubDomains",
+    "",
+    ""
+]
+-
+Body:

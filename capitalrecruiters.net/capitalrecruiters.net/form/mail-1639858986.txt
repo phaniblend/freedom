@@ -1,0 +1,44 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><font color="#f35D14" size="2" face="Tahoma">Name:</font></td>
+    <td width="90%" height="22"><font color="#333333" size="-1" face="Tahoma"></font></td>
+  </tr>
+       
+  <tr>
+    <td><font color="#f35D14" size="2" face="Tahoma">E-mail :</font></td>
+    <td width="90%" height="22"><font color="#333333" size="-1" face="Tahoma"></font></td>
+  </tr>
+   
+  <tr>
+    <td><font color="#f35D14" size="2" face="Tahoma">Message :</font></td>
+    <td width="90%" height="22"><font color="#333333" size="-1" face="Tahoma"></font></td>
+  </tr>
+</table>
+
+
+
+
+
+Sendgrid result
+-
+Status code: 202
+-
+Header:
+[
+    "HTTP\/1.1 202 Accepted",
+    "Server: nginx",
+    "Date: Sat, 18 Dec 2021 20:23:07 GMT",
+    "Content-Length: 0",
+    "Connection: keep-alive",
+    "X-Message-Id: JNa5KqEgSUyujesP5JaDMw",
+    "Access-Control-Allow-Origin: https:\/\/sendgrid.api-docs.io",
+    "Access-Control-Allow-Methods: POST",
+    "Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl",
+    "Access-Control-Max-Age: 600",
+    "X-No-CORS-Reason: https:\/\/sendgrid.com\/docs\/Classroom\/Basics\/API\/cors.html",
+    "Strict-Transport-Security: max-age=600; includeSubDomains",
+    "",
+    ""
+]
+-
+Body:

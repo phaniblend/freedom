@@ -1,0 +1,26 @@
+{
+  "name": "h1bconnect",
+  "version": "1.0.0",
+  "description": "H1B Transfer and Compliance Portal - Legal-tech platform for visa transfer and employer-of-record services",
+  "main": "server/dist/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "cd server && npm run build",
+    "build:client": "cd client && npm run build",
+    "start": "cd server && npm start",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "test": "npm run test:server && npm run test:client",
+    "test:server": "cd server && npm test",
+    "test:client": "cd client && npm test"
+  },
+  "keywords": ["h1b", "visa", "legal-tech", "compliance", "payroll", "immigration"],
+  "author": "H1BConnect Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": ["client", "server"]
+} 
