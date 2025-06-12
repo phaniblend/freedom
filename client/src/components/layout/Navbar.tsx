@@ -31,6 +31,17 @@ export const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
+            <a
+              href="http://capitalrecruiters.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 text-slate-700 hover:text-blue-600 font-medium transition-colors duration-200"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+              <span>Capital Recruiters</span>
+            </a>
             <Link
               to="/calculator"
               className="text-slate-700 hover:text-blue-600 font-medium transition-colors duration-200"
@@ -106,6 +117,19 @@ export const Navbar = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-slate-100 py-4">
             <div className="px-2 pt-2 pb-3 space-y-1">
+              <a
+                href="http://capitalrecruiters.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-3 py-3 rounded-xl text-slate-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-all duration-200"
+                onClick={closeMobileMenu}
+              >
+                <div className="flex items-center space-x-3">
+                  <span className="text-xl">🏠</span>
+                  <span>Capital Recruiters Home</span>
+                </div>
+              </a>
+              
               <Link
                 to="/calculator"
                 className="block px-3 py-3 rounded-xl text-slate-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-all duration-200"

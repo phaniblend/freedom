@@ -1,8 +1,9 @@
 import { create } from 'zustand';
 
-const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://h1bconnect-backend-production.up.railway.app/api'
-  : 'http://localhost:5000/api';
+const API_BASE_URL = (import.meta as any).env.VITE_API_URL || 
+  ((import.meta as any).env.PROD 
+    ? 'https://freedom-be-production.up.railway.app/api'
+    : 'http://localhost:5000/api');
 
 interface User {
   id: string;

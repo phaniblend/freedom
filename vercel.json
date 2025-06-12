@@ -24,14 +24,14 @@
     }
   ],
   "env": {
-    "VITE_API_URL": "https://h1bconnect-backend-production.up.railway.app/api",
+    "VITE_API_URL": "https://freedom-be-production.up.railway.app/api",
     "VITE_APP_NAME": "H1BConnect",
     "VITE_APP_VERSION": "1.0.0",
     "VITE_APP_ENVIRONMENT": "production"
   },
   "build": {
     "env": {
-      "VITE_API_URL": "https://h1bconnect-backend-production.up.railway.app/api"
+      "VITE_API_URL": "https://freedom-be-production.up.railway.app/api"
     }
   },
   "functions": {
