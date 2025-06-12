@@ -1,9 +1,17 @@
 import { create } from 'zustand';
 
-const API_BASE_URL = (import.meta as any).env.VITE_API_URL || 
-  ((import.meta as any).env.PROD 
-    ? 'https://freedom-be-production.up.railway.app/api'
-    : 'http://localhost:5000/api');
+// Debug: Log environment variables
+console.log('Environment variables:', {
+  VITE_API_URL: (import.meta as any).env.VITE_API_URL,
+  PROD: (import.meta as any).env.PROD,
+  MODE: (import.meta as any).env.MODE,
+  NODE_ENV: process.env.NODE_ENV
+});
+
+// Force the correct API URL for now
+const API_BASE_URL = 'https://freedom-be-production.up.railway.app/api';
+
+console.log('Using API_BASE_URL:', API_BASE_URL);
 
 interface User {
   id: string;

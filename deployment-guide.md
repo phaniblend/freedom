@@ -18,7 +18,7 @@ This guide helps you deploy the H1BConnect platform and integrate it with your e
      JWT_SECRET=your-jwt-secret-here
      PORT=5000
      ```
-   - Railway will provide a URL like: `https://h1bconnect-backend-production.up.railway.app`
+   - Railway will provide a URL like: `https://freedom-be-production.up.railway.app/api/auth/register`
 
 ## Step 2: Deploy H1BConnect Frontend to Railway
 
@@ -27,7 +27,7 @@ This guide helps you deploy the H1BConnect platform and integrate it with your e
    - Set environment variables:
      ```
      NODE_ENV=production
-     VITE_API_URL=https://h1bconnect-backend-production.up.railway.app/api
+     VITE_API_URL=https://freedom-be-production.up.railway.app/api/auth/register/api
      ```
    - Railway will provide a URL like: `https://h1bconnect-frontend-production.up.railway.app`
 
@@ -97,7 +97,7 @@ Your Railway PostgreSQL database has two connection URLs:
 
 Replace these placeholder URLs with your actual Railway deployment URLs:
 
-- **Backend**: `https://h1bconnect-backend-production.up.railway.app`
+- **Backend**: `https://freedom-be-production.up.railway.app/api/auth/register`
 - **Frontend**: `https://h1bconnect-frontend-production.up.railway.app`
 
 You can find these URLs in your Railway dashboard after deployment. 

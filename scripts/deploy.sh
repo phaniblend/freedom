@@ -44,7 +44,7 @@ npm install
 
 # Set production environment variables for build
 export NODE_ENV=production
-export VITE_API_URL=${VITE_API_URL:-"https://h1bconnect-backend-production.up.railway.app/api"}
+export VITE_API_URL=${VITE_API_URL:-"https://freedom-be-production.up.railway.app/api/auth/register/api"}
 export VITE_APP_NAME="H1BConnect"
 export VITE_APP_VERSION="1.0.0"
 export VITE_APP_ENVIRONMENT="production"
