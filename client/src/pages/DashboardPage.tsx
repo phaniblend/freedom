@@ -1,18 +1,20 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const DashboardPage = () => {
   const [activeSection, setActiveSection] = useState('overview');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const navigate = useNavigate();
 
   const sidebarItems = [
-    { id: 'overview', label: 'Overview', icon: '📊' },
-    { id: 'application', label: 'H1B Application', icon: '📋' },
-    { id: 'documents', label: 'Documents', icon: '📄' },
-    { id: 'timesheets', label: 'Timesheets', icon: '⏰' },
-    { id: 'payments', label: 'Payments', icon: '💳' },
-    { id: 'compliance', label: 'Compliance', icon: '✅' },
-    { id: 'reports', label: 'Reports', icon: '📈' },
-    { id: 'settings', label: 'Settings', icon: '⚙️' },
+    { id: 'overview', label: 'Overview', icon: '📊', route: '/dashboard' },
+    { id: 'application', label: 'H1B Application', icon: '📋', route: '/application' },
+    { id: 'documents', label: 'Documents', icon: '📄', route: '/documents' },
+    { id: 'timesheets', label: 'Timesheets', icon: '⏰', route: '/timesheets' },
+    { id: 'payments', label: 'Payments', icon: '💳', route: '/payments' },
+    { id: 'compliance', label: 'Compliance', icon: '✅', route: '/compliance' },
+    { id: 'reports', label: 'Reports', icon: '📈', route: '/reports' },
+    { id: 'settings', label: 'Settings', icon: '⚙️', route: '/profile' },
   ];
 
   const stats = [
@@ -64,6 +66,15 @@ const DashboardPage = () => {
     { id: 4, title: 'Contact Support', icon: '💬', color: 'cyan' },
   ];
 
+  const handleSidebarNavigation = (item: { id: string; route: string }) => {
+    if (item.id === 'overview') {
+      setActiveSection('overview');
+    } else {
+      navigate(item.route);
+    }
+    setIsSidebarOpen(false); // Close mobile sidebar
+  };
+
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Mobile Sidebar Overlay */}
@@ -96,7 +107,7 @@ const DashboardPage = () => {
             {sidebarItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => setActiveSection(item.id)}
+                onClick={() => handleSidebarNavigation(item)}
                 className={`w-full flex items-center px-4 py-3 text-left rounded-xl transition-all transform hover:scale-105 ${
                   activeSection === item.id
                     ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-400 border border-cyan-400/30'

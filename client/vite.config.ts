@@ -18,6 +18,7 @@ export default defineConfig({
   },
   server: {
     port: 3001,
+    host: true,
     proxy: {
       '/api': {
         target: 'http://localhost:5000',
@@ -28,5 +29,23 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          ui: ['lucide-react', 'framer-motion'],
+          forms: ['react-hook-form', 'react-datepicker', 'react-select'],
+          charts: ['recharts'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
+  },
+  preview: {
+    port: 3001,
+    host: true,
+  },
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
   },
 }); 

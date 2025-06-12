@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useAuthStore } from './store/authStore';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
@@ -16,38 +16,19 @@ import PaymentsPage from './pages/PaymentsPage';
 import ProfilePage from './pages/ProfilePage';
 import SavingsCalculatorPage from './pages/SavingsCalculatorPage';
 import AdvisorBookingPage from './pages/AdvisorBookingPage';
+import CompliancePage from './pages/CompliancePage';
+import ReportsPage from './pages/ReportsPage';
 
 // Protected Route Component
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 
 function App() {
   const { isLoading } = useAuthStore();
-  const location = useLocation();
   
-  // Check if current route should have full-screen layout (no navbar/footer)
-  const isFullScreenPage = location.pathname === '/dashboard';
-
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <LoadingSpinner size="lg" />
-      </div>
-    );
-  }
-
-  if (isFullScreenPage) {
-    return (
-      <div className="min-h-screen">
-        <Routes>
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <DashboardPage />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
       </div>
     );
   }
@@ -65,6 +46,14 @@ function App() {
           <Route path="/book-advisor" element={<AdvisorBookingPage />} />
           
           {/* Protected Routes */}
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardPage />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/application"
             element={
@@ -102,6 +91,22 @@ function App() {
             element={
               <ProtectedRoute>
                 <ProfilePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/compliance"
+            element={
+              <ProtectedRoute>
+                <CompliancePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/reports"
+            element={
+              <ProtectedRoute>
+                <ReportsPage />
               </ProtectedRoute>
             }
           />

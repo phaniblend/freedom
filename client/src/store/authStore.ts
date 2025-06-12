@@ -22,6 +22,7 @@ interface AuthState {
   logout: () => void;
   setUser: (user: User) => void;
   setToken: (token: string) => void;
+  updateUser: (updates: Partial<User>) => void;
   initializeAuth: () => void;
 }
 
@@ -90,6 +91,8 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   logout: () => {
     set({ user: null, token: null, isAuthenticated: false });
     localStorage.removeItem('token');
+    // Redirect to homepage after logout
+    window.location.href = '/';
   },
   
   setUser: (user: User) => {
@@ -99,6 +102,14 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   setToken: (token: string) => {
     set({ token, isAuthenticated: true });
     localStorage.setItem('token', token);
+  },
+
+  updateUser: (updates: Partial<User>) => {
+    const currentUser = get().user;
+    if (currentUser) {
+      const updatedUser = { ...currentUser, ...updates };
+      set({ user: updatedUser });
+    }
   },
 
   initializeAuth: () => {

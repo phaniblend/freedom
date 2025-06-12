@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "name": "h1bconnect-frontend",
+  "builds": [
+    {
+      "src": "client/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "client/dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "client/dist/$1"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "client/dist/index.html"
+    }
+  ],
+  "env": {
+    "VITE_API_URL": "https://h1bconnect-backend-production.up.railway.app/api",
+    "VITE_APP_NAME": "H1BConnect",
+    "VITE_APP_VERSION": "1.0.0",
+    "VITE_APP_ENVIRONMENT": "production"
+  },
+  "build": {
+    "env": {
+      "VITE_API_URL": "https://h1bconnect-backend-production.up.railway.app/api"
+    }
+  },
+  "functions": {
+    "client/dist/index.html": {
+      "includeFiles": "client/dist/**"
+    }
+  }
+} 

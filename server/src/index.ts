@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import compression from 'compression';
 import rateLimit from 'express-rate-limit';
+import { config, isProduction, isDevelopment } from './config/environment';
 // import { config } from './config/database';
 // import { AppDataSource } from './config/database';
 import { errorHandler } from './middleware/errorHandler';
@@ -19,21 +20,25 @@ import paymentRoutes from './routes/payment';
 import complianceRoutes from './routes/compliance';
 import timesheetRoutes from './routes/timesheet';
 import advisorRoutes from './routes/advisor';
+import reportsRoutes from './routes/reports';
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = config.PORT;
 
 // Rate limiting
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
+  windowMs: config.RATE_LIMIT_WINDOW_MS,
+  max: config.RATE_LIMIT_MAX_REQUESTS,
   message: 'Too many requests from this IP, please try again later.',
 });
 
 // Middleware
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: isProduction ? undefined : false,
+  crossOriginEmbedderPolicy: isProduction ? true : false,
+}));
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3001',
+  origin: config.FRONTEND_URL,
   credentials: true,
 }));
 app.use(compression());
@@ -48,7 +53,14 @@ app.get('/health', (req, res) => {
     status: 'OK', 
     timestamp: new Date().toISOString(),
     service: 'H1BConnect API',
-    mode: 'Development (Mock Data)'
+    environment: config.NODE_ENV,
+    version: '1.0.0',
+    mode: config.ENABLE_MOCK_MODE ? 'Mock Mode' : 'Production Mode',
+    deployment: {
+      railway: config.RAILWAY_ENVIRONMENT_NAME || null,
+      vercel: config.VERCEL_URL || null,
+      heroku: config.HEROKU_APP_NAME || null,
+    }
   });
 });
 
@@ -61,6 +73,7 @@ app.use('/api/payments', paymentRoutes);
 app.use('/api/compliance', complianceRoutes);
 app.use('/api/timesheets', timesheetRoutes);
 app.use('/api/advisors', advisorRoutes);
+app.use('/api/reports', reportsRoutes);
 
 // Error handling
 app.use(errorHandler);
@@ -73,14 +86,24 @@ app.use('*', (req, res) => {
 // Start server without database for development
 const startServer = async () => {
   try {
-    // Comment out database initialization for development
-    // await AppDataSource.initialize();
-    // logger.info('Database connected successfully');
+    // Database initialization only in production when enabled
+    if (isProduction && config.ENABLE_DATABASE) {
+      // await AppDataSource.initialize();
+      // logger.info('Database connected successfully');
+    }
     
     app.listen(PORT, () => {
       logger.info(`H1BConnect API server running on port ${PORT}`);
-      logger.info(`Environment: ${process.env.NODE_ENV || 'development'}`);
-      logger.info('Running in MOCK MODE - no database required');
+      logger.info(`Environment: ${config.NODE_ENV}`);
+      logger.info(`Frontend URL: ${config.FRONTEND_URL}`);
+      
+      if (config.ENABLE_MOCK_MODE) {
+        logger.info('Running in MOCK MODE - no database required');
+      }
+      
+      if (config.RAILWAY_ENVIRONMENT_NAME) {
+        logger.info(`Railway Environment: ${config.RAILWAY_ENVIRONMENT_NAME}`);
+      }
     });
   } catch (error) {
     logger.error('Failed to start server:', error);
@@ -91,13 +114,17 @@ const startServer = async () => {
 // Graceful shutdown
 process.on('SIGTERM', async () => {
   logger.info('SIGTERM received, shutting down gracefully');
-  // await AppDataSource.destroy();
+  // if (config.ENABLE_DATABASE) {
+  //   await AppDataSource.destroy();
+  // }
   process.exit(0);
 });
 
 process.on('SIGINT', async () => {
   logger.info('SIGINT received, shutting down gracefully');
-  // await AppDataSource.destroy();
+  // if (config.ENABLE_DATABASE) {
+  //   await AppDataSource.destroy();
+  // }
   process.exit(0);
 });
 
